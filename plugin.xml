@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="de.michaelskoehler.img-trafo"
+    id="de.michaelskoehler.imgtrafo"
     version="0.1.0">
 
-    <name>img-trafo</name>
+    <name>imgtrafo</name>
     <description>Cordova Plugin calling an OpenCV script to perform an image transformation</description>
     <license>MIT</license>
     <keywords>opencv,image</keywords>
 
-    <js-module src="www/img-trafo.js" name="img-trafo"> 
-        <clobbers target="img-trafo" /> <!-- ermoeglicht Zugriff auf plugin ueber target (hier: img-trafo, Zugriff z.B. img-trafo.methode()) -->
+    <js-module src="www/imgtrafo.js" name="imgtrafo"> 
+        <clobbers target="imgtrafo" /> <!-- ermoeglicht Zugriff auf plugin ueber target (hier: imgtrafo, Zugriff z.B. imgtrafo.methode()) -->
     </js-module>
 </plugin>
-    
    
