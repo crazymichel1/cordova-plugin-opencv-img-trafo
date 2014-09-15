@@ -2,15 +2,33 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="de.michaelskoehler.imgtrafo"
-    version="0.1.0">
+    version="0.1.0"> <!-- id = ein eindeutiger namespace -->
 
     <name>imgtrafo</name>
     <description>Cordova Plugin calling an OpenCV script to perform an image transformation</description>
     <license>MIT</license>
     <keywords>opencv,image</keywords>
 
-    <js-module src="www/imgtrafo.js" name="imgtrafo"> 
+    <!-- Einbindung js interface -->
+    <js-module src="www/imgtrafo.js" name="imgtrafo">  
         <clobbers target="imgtrafo" /> <!-- ermoeglicht Zugriff auf plugin ueber target (hier: imgtrafo, Zugriff z.B. imgtrafo.methode()) -->
     </js-module>
+    
+    <!-- Einbindung des nativen Codes fuer die ANDROID Platform  -->
+     <platform name="android">
+       
+        <!-- Das Plugin muss im Android-spezifischen Phonegap-config.xml file eingetragen sein damit die Plattform von der zusaetzlichen Code-Bibliothek weiss -->
+        <config-file target="res/xml/config.xml" parent="/*"> 
+            <feature name="Calendar"> <!-- name = aufzurufende Klasse, z.B. "Calendar" (entspricht 3. Paramter in der javascript cordova.exec function) -->
+                <param name="android-package" value="de.michaelskoehler.imgtrafo.Calendar"/> <!-- value = namespace + feature name, z.B. de.michaelskoehler.imgtrafo.Calendar -->
+            </feature>
+        </config-file>
+
+        <!-- Einbindung/Installation des nativen java-files -->
+        <!-- src = wo sich die Datei bei der plugin-Entwicklung relativ zur plugin.xml befindet --> 
+        <!-- target-dir = Verzeichnis, in das die Datei bei der plugin-Installation kopiert werden soll; wegen java muss der hintere Teil dem namespace entsprechen, also z.B. src/de/michaelskoehler/imgtrafo --> 
+        <source-file src="src/android/Calendar.java" target-dir="src/de/michaelskoehler/imgtrafo" />     
+     </platform>          
+    
 </plugin>
    
