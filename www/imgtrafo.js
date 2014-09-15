@@ -6,11 +6,11 @@ var imgtrafo = {
         var title = "PhoneGap Day";
         var location = "Amsterdam";
         var notes = "Arrive on time, don't want to miss out!";
-        var success = function() { alert("Success"); };
-        var error = function(message) { alert("Oopsie! " + message); };
+        var successCallback = function() { alert("Success"); };
+        var errorCallback = function(message) { alert("Oopsie! " + message); };
 		
-		cordova.exec(
-			successCallback, // success callback function
+	cordova.exec(
+            successCallback, // success callback function
             errorCallback, // error callback function
             'Calendar', // mapped to our native Java class
             'addCalendarEntry', // with this action name
@@ -22,7 +22,7 @@ var imgtrafo = {
                 "endTimeMillis": endDate.getTime()
             }]
 		);
-	}
+	},
 	
 	test2: function() {
     	alert('test');
