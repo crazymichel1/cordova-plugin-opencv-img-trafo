@@ -5,13 +5,13 @@
     version="0.1.0"> <!-- id = a unique namespace (use your website; or anything else) -->
 
     <name>sampleplugin</name>
-    <description>a very simple hello world cordova plugin showing how to call a native android java command from javascript (here: simple alert dialog with a message)</description>
+    <description>a very simple annotated hello world cordova plugin showing how to call a native android java command from javascript (here: simple alert dialog with a message); call plugin in your javascript with SamplePlugin.methodOne();</description>
     <license>MIT</license>
     <keywords>sample, example, helloworld, hello, world, demo, sampleplugin</keywords>
 
     <!-- include js interface -->
     <js-module src="www/SamplePlugin.js" name="SamplePlugin">  
-        <clobbers target="SamplePlugin" /> <!-- enables access to plugin from your javascript code, here: access plugin with SamplePlugin.methodOne()) -->
+        <clobbers target="SamplePlugin" /> <!-- enables access to plugin from your javascript code, here: access plugin with SamplePlugin.methodOne();) -->
     </js-module>
     
     <!-- include native code for ANDROID platform  -->
