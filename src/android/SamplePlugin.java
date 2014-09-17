@@ -10,6 +10,8 @@ import org.json.JSONException;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 
+import android.app.Activity;
+
 
 public class SamplePlugin extends CordovaPlugin {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
@@ -23,7 +25,7 @@ public class SamplePlugin extends CordovaPlugin {
             	
             	// Fetch arguments
             	JSONObject arg_object = args.getJSONObject(0);
-            	message = arg_object.getString("message");
+            	String message = arg_object.getString("message");
             	
             	// Show Alert Dialog
                 new AlertDialog.Builder(this)
