@@ -3,6 +3,8 @@ package de.michaelskoehler.sampleplugin;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
+import android.content.Context;
+
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,8 +29,11 @@ public class SamplePlugin extends CordovaPlugin {
             	JSONObject arg_object = args.getJSONObject(0);
             	String message = arg_object.getString("message");
             	
+            	// Get Codova Context
+            	Context context = this.cordova.getActivity().getApplicationContext();
+            	
             	// Show Alert Dialog
-                new AlertDialog.Builder(this)
+                new AlertDialog.Builder(context)
 	                .setTitle("Alert")
 	                .setMessage(message)
 	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
