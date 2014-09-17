@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="de.michaelskoehler.imgtrafo"
-    version="0.1.0"> <!-- id = ein eindeutiger namespace -->
+    id="de.michaelskoehler.sampleplugin"
+    version="0.1.0"> <!-- id = a unique namespace (use your website; or anything else) -->
 
-    <name>imgtrafo</name>
-    <description>Cordova Plugin calling an OpenCV script to perform an image transformation - NOT YET COMPLETE!!!</description>
+    <name>sampleplugin</name>
+    <description>a very simple hello world cordova plugin showing how to call a native android java command from javascript (here: simple alert dialog with a message)</description>
     <license>MIT</license>
-    <keywords>opencv,image</keywords>
+    <keywords>sample, example, helloworld, hello, world, demo, sampleplugin</keywords>
 
-    <!-- Einbindung js interface -->
-    <js-module src="www/imgtrafo.js" name="imgtrafo">  
-        <clobbers target="imgtrafo" /> <!-- ermoeglicht Zugriff auf plugin ueber target (hier: imgtrafo, Zugriff z.B. imgtrafo.methode()) -->
+    <!-- include js interface -->
+    <js-module src="www/SamplePlugin.js" name="SamplePlugin">  
+        <clobbers target="SamplePlugin" /> <!-- enables access to plugin from your javascript code, here: access plugin with SamplePlugin.methodOne()) -->
     </js-module>
     
-    <!-- Einbindung des nativen Codes fuer die ANDROID Platform  -->
+    <!-- include native code for ANDROID platform  -->
      <platform name="android">
        
-        <!-- Das Plugin muss im Android-spezifischen Phonegap-config.xml file eingetragen sein damit die Plattform von der zusaetzlichen Code-Bibliothek weiss -->
+        <!-- plugin must have an entry in the android specific (phonegap-)config.xml file so that the platform knows about the additional code library -->
         <config-file target="res/xml/config.xml" parent="/*"> 
-            <feature name="Calendar"> <!-- name = aufzurufende Klasse, z.B. "Calendar" (entspricht 3. Paramter in der javascript cordova.exec function) -->
-                <param name="android-package" value="de.michaelskoehler.imgtrafo.Calendar"/> <!-- value = namespace + feature name, z.B. de.michaelskoehler.imgtrafo.Calendar -->
+            <feature name="SamplePlugin"> <!-- name = Java class to call, e.g. "SamplePlugin" (equal to 3rd parameter in javascript cordova.exec function) -->
+                <param name="android-package" value="de.michaelskoehler.sampleplugin.SamplePlugin"/> <!-- value = namespace.featurename, e.g. de.michaelskoehler.sampleplugin.SamplePlugin -->
             </feature>
         </config-file>
 
-        <!-- Einbindung/Installation des nativen java-files -->
-        <!-- src = wo sich die Datei bei der plugin-Entwicklung relativ zur plugin.xml befindet --> 
-        <!-- target-dir = Verzeichnis, in das die Datei bei der plugin-Installation kopiert werden soll; wegen java muss der hintere Teil dem namespace entsprechen, also z.B. src/de/michaelskoehler/imgtrafo --> 
-        <source-file src="src/android/Calendar.java" target-dir="src/de/michaelskoehler/imgtrafo" />     
+        <!-- include/install native java files for the plugin user -->
+        <!-- src = location of the file for the plugin developer, relative to plugin.xml --> 
+        <!-- target-dir = location where the file is copied when the plugin is installed; because of java the last part of the path must correspont to the namespace, here: src/de/michaelskoehler/sampleplugin --> 
+        <source-file src="src/android/SamplePlugin.java" target-dir="src/de/michaelskoehler/sampleplugin" />     
      </platform>          
     
 </plugin>
