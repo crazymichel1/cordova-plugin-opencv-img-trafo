@@ -5,8 +5,8 @@ var SamplePlugin = {
 		var message = "Hello World!";
 		
 		// simple js callback functions for testing
-        var successCallback = function() { alert("Success"); };
-        var errorCallback = function(message) { alert("Error: " + message); };
+		var succecssCallback = function() { alert("Success"); };
+		var errorCallback = function(message) { alert("Error: " + message); };
 		
 		cordova.exec(
 	            successCallback, // in case of success, execute this js function
@@ -21,4 +21,4 @@ var SamplePlugin = {
 	}	
 };
 
-module.exports = imgtrafo; // export is important!
+module.exports = SamplePlugin; // export is important to access it from other js!
