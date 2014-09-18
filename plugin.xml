@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="de.michaelskoehler.sampleplugin"
-    version="0.1.0"> <!-- id = a unique namespace (use your website; or anything else) -->
+    version="1.0.0"> <!-- id = a unique namespace (use your website; or anything else) -->
 
     <name>sampleplugin</name>
     <description>a very simple annotated hello world cordova plugin showing how to call a native android java command from javascript (here: simple alert dialog with a message); call plugin in your javascript with SamplePlugin.methodOne();</description>
