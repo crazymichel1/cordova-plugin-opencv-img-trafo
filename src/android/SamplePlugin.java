@@ -29,12 +29,12 @@ public class SamplePlugin extends CordovaPlugin {
             	JSONObject arg_object = args.getJSONObject(0);
             	String message = arg_object.getString("message");
             	
-            	// Get Codova Context
-            	Context context = this.cordova.getActivity().getApplicationContext();
+            	// Get Codova Activity
+            	Activity activity = this.cordova.getActivity();
             	
             	// Show Alert Dialog
-                new AlertDialog.Builder(context)
-	                .setTitle("Alert")
+                new AlertDialog.Builder(activity)
+	                .setTitle("My Alert")
 	                .setMessage(message)
 	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 	                    public void onClick(DialogInterface dialog, int which) { 

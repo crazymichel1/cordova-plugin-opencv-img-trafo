@@ -5,7 +5,7 @@ var SamplePlugin = {
 		var message = "Hello World!";
 		
 		// simple js callback functions for testing
-		var succecssCallback = function() { alert("Success"); };
+		var successCallback = function() { alert("Success"); };
 		var errorCallback = function(message) { alert("Error: " + message); };
 		
 		cordova.exec(
