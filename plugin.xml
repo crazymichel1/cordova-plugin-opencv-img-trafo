@@ -22,6 +22,10 @@
             <feature name="ImgTrafo"> <!-- name = Java class to call, e.g. "SamplePlugin" (equal to third parameter in javascript cordova.exec function) -->
                 <param name="android-package" value="de.michaelskoehler.imgtrafo.ImgTrafo"/> <!-- value = namespace.featurename, e.g. de.michaelskoehler.sampleplugin.SamplePlugin -->
             </feature>
+            <!-- opencv -->
+            <feature name="opencvlib249"> <!-- ? -->
+                <param name="android-package" value="de.michaelskoehler.opencvlib249" />
+            </feature>
         </config-file>
 
         <!-- include/install native java files for the plugin user -->
@@ -40,7 +44,7 @@
 		<uses-feature android:name="android.hardware.camera.front" android:required="false"/>
 		<uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
 	 </config-file>
-	 <source-file src="src/android/libs/opencv library - 2.4.9.jar" target-dir="libs" />
+	 <source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
 	
     
 </plugin>
