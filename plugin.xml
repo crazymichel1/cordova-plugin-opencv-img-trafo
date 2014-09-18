@@ -40,7 +40,7 @@
 		<uses-feature android:name="android.hardware.camera.front" android:required="false"/>
 		<uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
 	 </config-file>
-	 <source-file src="src/android/libs/opencv library - 2.4.9.jar" target-dir="lib" />
+	 <source-file src="src/android/libs/opencv library - 2.4.9.jar" target-dir="libs" />
 	
     
 </plugin>
