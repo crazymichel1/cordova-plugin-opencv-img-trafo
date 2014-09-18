@@ -1,4 +1,4 @@
-var SamplePlugin = {
+var ImgTrafo = {
 	
 	methodOne: function() {
 		// simple alert dialog message for testing
@@ -11,7 +11,7 @@ var SamplePlugin = {
 		cordova.exec(
 	            successCallback, // in case of success, execute this js function
 	            errorCallback, // in case of error, execute this js function
-	            'SamplePlugin', // call the native Java class with this name
+	            'ImgTrafo', // call the native Java class with this name
 	            'showAlertDialog', // there, execute the action with this name
 	            [{                  // and pass this array of custom arguments to it
 	                "message": message
@@ -21,4 +21,4 @@ var SamplePlugin = {
 	}	
 };
 
-module.exports = SamplePlugin; // export is important to access it from other js!
+module.exports = ImgTrafo; // export is important to access it from other js!

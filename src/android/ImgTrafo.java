@@ -1,4 +1,4 @@
-package de.michaelskoehler.sampleplugin;
+package de.michaelskoehler.imgtrafo;
  
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -15,7 +15,7 @@ import android.content.DialogInterface;
 import android.app.Activity;
 
 
-public class SamplePlugin extends CordovaPlugin {
+public class ImgTrafo extends CordovaPlugin {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
     
     @Override
