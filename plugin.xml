@@ -35,11 +35,10 @@
      
         
      	<source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
-     
-     </platform>
+        <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
+     	
         
      <!-- include opencv stuff -->
-     <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
      <config-file target="AndroidManifest.xml" parent="/*">     
 	    <uses-permission android:name="android.permission.CAMERA" />
 	   
@@ -49,6 +48,8 @@
 		<uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
 	 </config-file>
 	 
+     </platform>
+     
     
 </plugin>
    
