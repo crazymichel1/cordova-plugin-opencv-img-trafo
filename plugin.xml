@@ -14,6 +14,9 @@
         <clobbers target="ImgTrafo" /> <!-- enables access to plugin from your javascript code, e.g. access plugin with SamplePlugin.methodOne();) -->
     </js-module>
     
+    
+         <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
+    
     <!-- include native code for ANDROID platform  -->
      <platform name="android">
        
@@ -39,7 +42,6 @@
      </platform>
         
      <!-- include opencv stuff -->
-     <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
      <config-file target="AndroidManifest.xml" parent="/*">     
 	    <uses-permission android:name="android.permission.CAMERA" />
 	   
