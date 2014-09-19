@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.SurfaceView;
 
 import android.app.Activity;
+import android.R;
 
 
 public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
