@@ -30,9 +30,11 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     // opencv
     private static final String TAG = "OCVSample::Activity";
 	private CameraBridgeViewBase mOpenCvCameraView;
+	
+	Activity activity = this.cordova.getActivity();
 	    
     // prepare callback function for opencv loader (called later)
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(activity) {
     	@Override
     	public void onManagerConnected(int status) {
     		switch (status) {
