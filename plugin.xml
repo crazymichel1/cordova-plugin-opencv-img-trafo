@@ -35,7 +35,7 @@
      
         
      	<source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
-        <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout" />
      	
         
      <!-- include opencv stuff -->
