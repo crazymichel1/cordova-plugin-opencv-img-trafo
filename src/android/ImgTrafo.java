@@ -22,7 +22,7 @@ import android.util.Log;
 import android.view.SurfaceView;
 
 import android.app.Activity;
-import android.R;
+import de.michaelskoehler.imgtrafo.R;
 
 
 public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
@@ -53,7 +53,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     };
     
     
-    public void onCameraViewStarted(int width, int height) {
+    public void onCamerahStarted(int width, int height) {
     	
     }
     
