@@ -23,9 +23,9 @@
                 <param name="android-package" value="de.michaelskoehler.imgtrafo.ImgTrafo"/> <!-- value = namespace.featurename, e.g. de.michaelskoehler.sampleplugin.SamplePlugin -->
             </feature>
             <!-- opencv -->
-            <feature name="opencvlib249"> <!-- ? -->
+            <!--  <feature name="opencvlib249"> 
                 <param name="android-package" value="de.michaelskoehler.opencvlib249" />
-            </feature>
+            </feature> -->
         </config-file>
 
         <!-- include/install native java files for the plugin user -->
