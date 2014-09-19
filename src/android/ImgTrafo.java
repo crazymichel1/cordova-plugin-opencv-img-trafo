@@ -85,7 +85,9 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
                 mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
                 mOpenCvCameraView.setCvCameraViewListener(this);
                 
-            	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_6, this, mLoaderCallback);
+            	Activity activity = this.cordova.getActivity();
+
+            	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_6, activity, mLoaderCallback);
                 
             	/*
             	// Get Codova Activity
