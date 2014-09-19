@@ -33,6 +33,11 @@
         <!-- target-dir = location where the file is copied when the plugin is installed; because of java the last part of the path must correspont to the namespace, e.g. src/de/michaelskoehler/sampleplugin --> 
         <source-file src="src/android/ImgTrafo.java" target-dir="src/de/michaelskoehler/imgtrafo" />     
      
+        
+     	<source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
+     
+     </platform>
+        
      <!-- include opencv stuff -->
      <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
      <config-file target="AndroidManifest.xml" parent="/*">     
@@ -43,10 +48,7 @@
 		<uses-feature android:name="android.hardware.camera.front" android:required="false"/>
 		<uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
 	 </config-file>
-	 <source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
-	 <!--  <source-file src="src/android/libs/android-support-v4.jar" target-dir="libs" /> -->
 	 
-    </platform>
     
 </plugin>
    
