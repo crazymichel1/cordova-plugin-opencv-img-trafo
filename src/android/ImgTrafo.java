@@ -15,7 +15,7 @@ import org.opencv.android.OpenCVLoader;
 import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
 import org.opencv.core.Mat;
 
-import de.michaelskoehler.opencvandroidplayground.R;
+import de.michaelskoehler.imgtrafo.R;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
