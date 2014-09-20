@@ -82,7 +82,6 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	String message = arg_object.getString("message");
             	
             	// get some application variables
-            	Activity activity = this.cordova.getActivity();
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
