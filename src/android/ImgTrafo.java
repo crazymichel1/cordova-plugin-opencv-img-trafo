@@ -1,5 +1,6 @@
 package de.michaelskoehler.imgtrafo;
- 
+
+import de.michaelskoehler.imgtrafo.R;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
@@ -23,7 +24,6 @@ import android.view.SurfaceView;
 
 import android.app.Activity;
 //import android.R;
-import de.michaelskoehler.imgtrafo.R;
 
 
 public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
