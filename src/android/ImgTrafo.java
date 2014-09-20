@@ -1,6 +1,5 @@
 package de.michaelskoehler.imgtrafo;
 
-import de.michaelskoehler.imgtrafo.R;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
@@ -81,12 +80,18 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	JSONObject arg_object = args.getJSONObject(0);
             	String message = arg_object.getString("message");
             	
+            	// get some application variables
+            	Activity activity = this.cordova.getActivity();
+            	Context context = activity.getApplicationContext();
+            	Resources resources = context.getResources();
+            	String packageName = context.getPackageName();
+            	            	            	
             	// opencv
-                mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.HelloOpenCvView);
+            	mOpenCvCameraView = (CameraBridgeViewBase) findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName)); // instead of findViewById(R.id.HelloOpenCvView)
                 mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
                 mOpenCvCameraView.setCvCameraViewListener(this);
                 
-            	Activity activity = this.cordova.getActivity();
+            	
 
             	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_6, activity, mLoaderCallback);
                 
