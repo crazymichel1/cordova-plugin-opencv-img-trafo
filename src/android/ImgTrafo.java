@@ -21,6 +21,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.SurfaceView;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import android.app.Activity;
 //import android.R;
@@ -85,9 +87,12 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
+            	
+            	LayoutInflater inflater = LayoutInflater.from(context);
+            	View appearance = inflater.inflate(resources.getIdentifier("activity_mail", layout", packageName),null);
             	            	            	
             	// opencv
-            	mOpenCvCameraView = (CameraBridgeViewBase)findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName)); // instead of findViewById(R.id.HelloOpenCvView)
+            	mOpenCvCameraView = (CameraBridgeViewBase)appearance.findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName)); // instead of findViewById(R.id.HelloOpenCvView)
                 mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
                 mOpenCvCameraView.setCvCameraViewListener(this);
                 
