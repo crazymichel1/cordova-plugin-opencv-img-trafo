@@ -83,12 +83,11 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	
             	// get some application variables
             	Activity activity = this.cordova.getActivity();
-            	Context context = activity.getApplicationContext();
-            	Resources resources = context.getResources();
-            	String packageName = context.getPackageName();
+            	Resources resources = getApplication().getResources();
+            	String packageName = getApplication().getPackageName();
             	            	            	
             	// opencv
-            	mOpenCvCameraView = (CameraBridgeViewBase)findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName),null); // instead of findViewById(R.id.HelloOpenCvView)
+            	mOpenCvCameraView = (CameraBridgeViewBase)findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName)); // instead of findViewById(R.id.HelloOpenCvView)
                 mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
                 mOpenCvCameraView.setCvCameraViewListener(this);
                 
