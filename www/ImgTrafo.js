@@ -6,7 +6,7 @@ var ImgTrafo = {
 		
 		// simple js callback functions for testing
 		var successCallback = function() { };
-		var errorCallback = function(message) { alert("Error: " + message); };
+		var errorCallback = function(message) { alert("Errors: " + message); };
 		
 		cordova.exec(
 	            successCallback, // in case of success, execute this js function

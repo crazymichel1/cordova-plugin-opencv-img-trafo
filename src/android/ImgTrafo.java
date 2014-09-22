@@ -28,15 +28,16 @@ import android.app.Activity;
 //import android.R;
 
 
-public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
+public class ImgTrafo extends CordovaPlugin {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
     
     // opencv
     private static final String TAG = "OCVSample::Activity";
-	private CameraBridgeViewBase mOpenCvCameraView;
+	//private CameraBridgeViewBase mOpenCvCameraView;
 	
 	Activity activity = this.cordova.getActivity();
-	    
+	
+	/*
     // prepare callback function for opencv loader (called later)
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(activity) {
     	@Override
@@ -56,6 +57,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     };
     
     
+    
     public void onCameraViewStarted(int width, int height) {
     	
     }
@@ -68,7 +70,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
     	return inputFrame.rgba();
     }
-    
+    */
     
     // Cordova Plugin
 	
@@ -85,9 +87,11 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	
             	// get some application variables
             	Activity activity = this.cordova.getActivity();
+            	/*
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
+            	*/
             	
             	// Show Alert Dialog
             	new AlertDialog.Builder(activity)
