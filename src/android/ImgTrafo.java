@@ -33,26 +33,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     
     // opencv
     private static final String TAG = "OCVSample::Activity";
-	private CameraBridgeViewBase mOpenCvCameraView;
-		    
-    // prepare callback function for opencv loader (called later)
-    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this.cordova.getActivity()) {
-    	@Override
-    	public void onManagerConnected(int status) {
-    		switch (status) {
-	    		case LoaderCallbackInterface.SUCCESS:
-	    		{
-	    			Log.i(TAG, "OpenCV loading successful :)");
-	    			mOpenCvCameraView.enableView();
-	    		} break;
-	    		default:
-	    		{
-	    			super.onManagerConnected(status);
-	    		} break;
-    		}
-    	}
-    };
-    
+	private CameraBridgeViewBase mOpenCvCameraView;    
     
     public void onCameraViewStarted(int width, int height) {
     	
@@ -96,7 +77,22 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
                 mOpenCvCameraView.setCvCameraViewListener(this);
                 
             	
-
+                BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this.cordova.getActivity()) {
+                	@Override
+                	public void onManagerConnected(int status) {
+                		switch (status) {
+            	    		case LoaderCallbackInterface.SUCCESS:
+            	    		{
+            	    			Log.i(TAG, "OpenCV loading successful :)");
+            	    			mOpenCvCameraView.enableView();
+            	    		} break;
+            	    		default:
+            	    		{
+            	    			super.onManagerConnected(status);
+            	    		} break;
+                		}
+                	}
+                };
             	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, activity, mLoaderCallback);
                 
             	/*
