@@ -121,7 +121,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             
             // Case: other, non-supported action
             callbackContext.error("Invalid action");
-            return false;
+            return false; 
             
         } catch(Exception e) {
             System.err.println("Exception: " + e.getMessage());
