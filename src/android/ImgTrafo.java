@@ -133,9 +133,9 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             
             // build error msg
             String errorMsg = new String("Message: ");
-            errorMsg.concat(e.getMessage());
-            errorMsg.concat(" Stack Trace: ");
-            errorMsg.concat(sw.toString());
+            errorMsg = errorMsg.concat(e.getMessage());
+            errorMsg = errorMsg.concat(" Stack Trace: ");
+            errorMsg = errorMsg.concat(sw.toString());
             
             callbackContext.error(errorMsg);
             return false;
