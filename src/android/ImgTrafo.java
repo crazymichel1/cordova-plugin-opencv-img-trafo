@@ -4,7 +4,6 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
 import android.content.Context;
-import android.content.res.Resources;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -12,10 +11,6 @@ import org.json.JSONException;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.util.Log;
-import android.view.SurfaceView;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import android.app.Activity;
 //import android.R;
@@ -27,9 +22,7 @@ public class ImgTrafo extends CordovaPlugin {
     // opencv
     private static final String TAG = "OCVSample::Activity";
 	//private CameraBridgeViewBase mOpenCvCameraView;
-	
-	Activity activity = this.cordova.getActivity();
-	
+		
 	/*
     // prepare callback function for opencv loader (called later)
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(activity) {
@@ -90,12 +83,6 @@ public class ImgTrafo extends CordovaPlugin {
             	new AlertDialog.Builder(activity)
 	                .setTitle("My Alert")
 	                .setMessage("test")
-	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-	                    public void onClick(DialogInterface dialog, int which) { 
-	                        // do something after confirmation
-	                    }
-	                 })
-	                .setIcon(android.R.drawable.ic_dialog_alert)
 	                .show();
             	
             	/*
