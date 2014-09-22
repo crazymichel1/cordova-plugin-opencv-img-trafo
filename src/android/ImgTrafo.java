@@ -101,6 +101,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
 	                .setIcon(android.R.drawable.ic_dialog_alert)
 	                .show();
             	
+            	/*
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
             	            	            	
@@ -112,7 +113,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	
 
             	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, activity, mLoaderCallback);
-                
+                */
             	/*
             	// Get Codova Activity
             	Activity activity = this.cordova.getActivity();
