@@ -4,26 +4,37 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
 import android.content.Context;
+import android.content.res.Resources;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
+import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
+import org.opencv.core.Mat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.util.Log;
+import android.view.SurfaceView;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import android.app.Activity;
 //import android.R;
 
 
-public class ImgTrafo extends CordovaPlugin {
+public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
     
     // opencv
     private static final String TAG = "OCVSample::Activity";
-	//private CameraBridgeViewBase mOpenCvCameraView;
-		
-	/*
+	private CameraBridgeViewBase mOpenCvCameraView;
+		    
     // prepare callback function for opencv loader (called later)
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(activity) {
     	@Override
@@ -43,7 +54,6 @@ public class ImgTrafo extends CordovaPlugin {
     };
     
     
-    
     public void onCameraViewStarted(int width, int height) {
     	
     }
@@ -56,7 +66,7 @@ public class ImgTrafo extends CordovaPlugin {
     public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
     	return inputFrame.rgba();
     }
-    */
+    
     
     // Cordova Plugin
 	
@@ -68,24 +78,15 @@ public class ImgTrafo extends CordovaPlugin {
             if (ACTION_SHOW_ALERT_DIALOG.equals(action)) { 
             	
             	// Fetch arguments
-            	// JSONObject arg_object = args.getJSONObject(0);
-            	// String message = arg_object.getString("message");
+            	JSONObject arg_object = args.getJSONObject(0);
+            	String message = arg_object.getString("message");
             	
             	// get some application variables
             	Activity activity = this.cordova.getActivity();
-            	/*
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
-            	*/
             	
-            	// Show Alert Dialog
-            	new AlertDialog.Builder(activity)
-	                .setTitle("My Alert")
-	                .setMessage("test")
-	                .show();
-            	
-            	/*
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
             	            	            	
@@ -96,15 +97,24 @@ public class ImgTrafo extends CordovaPlugin {
                 
             	
 
-            	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, activity, mLoaderCallback);
-                */
+            	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_6, activity, mLoaderCallback);
+                
             	/*
             	// Get Codova Activity
             	Activity activity = this.cordova.getActivity();
-            	*/
             	
-
-	             
+            	// Show Alert Dialog
+            	new AlertDialog.Builder(activity)
+	                .setTitle("My Alert")
+	                .setMessage(message)
+	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	                    public void onClick(DialogInterface dialog, int which) { 
+	                        // do something after confirmation
+	                    }
+	                 })
+	                .setIcon(android.R.drawable.ic_dialog_alert)
+	                .show();
+	             */
             	
                callbackContext.success();
                return true;
