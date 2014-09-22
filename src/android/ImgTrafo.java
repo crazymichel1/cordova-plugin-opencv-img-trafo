@@ -32,6 +32,8 @@ import android.app.Activity;
 public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
     
+    private static String debugVars = "";
+    
     // opencv
     private static final String TAG = "OCVSample::Activity";
 	private CameraBridgeViewBase mOpenCvCameraView;    
@@ -58,7 +60,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
         	
         	// Case: showAlertDialog action
             if (ACTION_SHOW_ALERT_DIALOG.equals(action)) { 
-            	
+            	debugVars = "yes";
             	/*
             	// Fetch arguments
             	JSONObject arg_object = args.getJSONObject(0);
@@ -110,6 +112,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
 	                    public void onClick(DialogInterface dialog, int which) { 
 	                        // do something after confirmation
 	                    }
+	            
 	                 })
 	                .setIcon(android.R.drawable.ic_dialog_alert)
 	                .show();
@@ -132,7 +135,9 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             e.printStackTrace(pw);
             
             // build error msg
-            String errorMsg = new String("Message: ");
+            String errorMsg = "Debug-Vars: ";
+            errorMsg = errorMsg.concat(this.debugVars);
+            errorMsg = errorMsg.concat("Message: ");
             errorMsg = errorMsg.concat(e.getMessage());
             errorMsg = errorMsg.concat(" Stack Trace: ");
             errorMsg = errorMsg.concat(sw.toString());
