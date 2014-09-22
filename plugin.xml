@@ -21,7 +21,7 @@
      <platform name="android">
        
         <!-- plugin must have an entry in the android specific (phonegap-)config.xml file so that the platform knows about the additional code library -->
-        <config-file target="config.xml" parent="/*"> 
+        <config-file target="res/xml/config.xml" parent="/*"> 
             <feature name="ImgTrafo"> <!-- name = Java class to call, e.g. "SamplePlugin" (equal to third parameter in javascript cordova.exec function) -->
                 <param name="android-package" value="de.michaelskoehler.imgtrafo.ImgTrafo"/> <!-- value = namespace.featurename, e.g. de.michaelskoehler.sampleplugin.SamplePlugin -->
             </feature>
