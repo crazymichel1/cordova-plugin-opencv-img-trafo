@@ -58,9 +58,11 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
         	// Case: showAlertDialog action
             if (ACTION_SHOW_ALERT_DIALOG.equals(action)) { 
             	
+            	/*
             	// Fetch arguments
             	JSONObject arg_object = args.getJSONObject(0);
             	String message = arg_object.getString("message");
+            	*/
             	
             	// get some application variables
             	Activity activity = this.cordova.getActivity();
@@ -122,7 +124,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             
         } catch(Exception e) {
             System.err.println("Exception: " + e.getMessage());
-            callbackContext.error(e.getMessage());
+            callbackContext.error("Exception:" + e.getMessage());
             return false;
         } 
     }
