@@ -124,10 +124,16 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             
         } catch(Exception e) {
             System.err.println("Exception: " + e.getMessage());
+            
+            // get stack trace as string
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            
             String errorMsg = new String("");
             errorMsg.concat(e.getMessage());
             errorMsg.concat("Stack Trace:");
-            errorMsg.concat(e.getStackTrace());
+            errorMsg.concat(sw.toString());
             callbackContext.error(errorMsg);
             return false;
         } 
