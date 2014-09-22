@@ -89,6 +89,18 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
             	
+            	// Show Alert Dialog
+            	new AlertDialog.Builder(activity)
+	                .setTitle("My Alert")
+	                .setMessage("test")
+	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+	                    public void onClick(DialogInterface dialog, int which) { 
+	                        // do something after confirmation
+	                    }
+	                 })
+	                .setIcon(android.R.drawable.ic_dialog_alert)
+	                .show();
+            	
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
             	            	            	
@@ -104,19 +116,10 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	/*
             	// Get Codova Activity
             	Activity activity = this.cordova.getActivity();
+            	*/
             	
-            	// Show Alert Dialog
-            	new AlertDialog.Builder(activity)
-	                .setTitle("My Alert")
-	                .setMessage(message)
-	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-	                    public void onClick(DialogInterface dialog, int which) { 
-	                        // do something after confirmation
-	                    }
-	                 })
-	                .setIcon(android.R.drawable.ic_dialog_alert)
-	                .show();
-	             */
+
+	             
             	
                callbackContext.success();
                return true;
