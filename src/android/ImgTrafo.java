@@ -1,5 +1,6 @@
 package de.michaelskoehler.imgtrafo;
 
+import java.io.*;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
@@ -76,7 +77,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	// opencv
             	mOpenCvCameraView = (CameraBridgeViewBase)appearance.findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName)); // instead of findViewById(R.id.HelloOpenCvView)
                 mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-                mOpenCvCameraView.setCvCameraViewListener(this);
+                mOpenCvCameraView.setCvCameraViewListener(this);               
                 
             	
                 BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this.cordova.getActivity()) {
@@ -130,10 +131,12 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             PrintWriter pw = new PrintWriter(sw);
             e.printStackTrace(pw);
             
+            // build error msg
             String errorMsg = new String("");
             errorMsg.concat(e.getMessage());
             errorMsg.concat("Stack Trace:");
             errorMsg.concat(sw.toString());
+            
             callbackContext.error(errorMsg);
             return false;
         } 
