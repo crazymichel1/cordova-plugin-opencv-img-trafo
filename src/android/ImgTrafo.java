@@ -22,9 +22,7 @@ public class ImgTrafo extends CordovaPlugin {
     // opencv
     private static final String TAG = "OCVSample::Activity";
 	//private CameraBridgeViewBase mOpenCvCameraView;
-	
-	Activity activity = this.cordova.getActivity();
-	
+		
 	/*
     // prepare callback function for opencv loader (called later)
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(activity) {
