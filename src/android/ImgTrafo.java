@@ -9,13 +9,6 @@ import android.content.res.Resources;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.opencv.android.OpenCVLoader;
-import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.CameraBridgeViewBase;
-import org.opencv.android.LoaderCallbackInterface;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
-import org.opencv.core.Mat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
