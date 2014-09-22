@@ -4,7 +4,6 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 
 import android.content.Context;
-import android.content.res.Resources;
 
 import org.json.JSONObject;
 import org.json.JSONArray;
@@ -12,10 +11,6 @@ import org.json.JSONException;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.util.Log;
-import android.view.SurfaceView;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import android.app.Activity;
 //import android.R;
