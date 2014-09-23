@@ -60,7 +60,6 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
         	
         	// Case: showAlertDialog action
             if (ACTION_SHOW_ALERT_DIALOG.equals(action)) { 
-            	debugVars = "yes";
             	/*
             	// Fetch arguments
             	JSONObject arg_object = args.getJSONObject(0);
@@ -72,6 +71,8 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
+            	
+            	debugVars = debugVars.concat("Package Name: " + packageName);
             	
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
@@ -135,11 +136,11 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             e.printStackTrace(pw);
             
             // build error msg
-            String errorMsg = "Debug-Vars: ";
+            String errorMsg = "Debug-Vars: \n";
             errorMsg = errorMsg.concat(this.debugVars);
-            errorMsg = errorMsg.concat("Message: ");
+            errorMsg = errorMsg.concat(" \n Message: ");
             errorMsg = errorMsg.concat(e.getMessage());
-            errorMsg = errorMsg.concat(" Stack Trace: ");
+            errorMsg = errorMsg.concat(" \n Stack Trace: ");
             errorMsg = errorMsg.concat(sw.toString());
             
             callbackContext.error(errorMsg);
