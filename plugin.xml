@@ -14,9 +14,7 @@
         <clobbers target="ImgTrafo" /> <!-- enables access to plugin from your javascript code, e.g. access plugin with SamplePlugin.methodOne();) -->
     </js-module>
     
-    
-         <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
-    
+        
     <!-- include native code for ANDROID platform  -->
      <platform name="android">
        
@@ -35,8 +33,7 @@
         <!-- src = location of the file for the plugin developer, relative to plugin.xml --> 
         <!-- target-dir = location where the file is copied when the plugin is installed; because of java the last part of the path must correspont to the namespace, e.g. src/de/michaelskoehler/sampleplugin --> 
         <source-file src="src/android/ImgTrafo.java" target-dir="src/de/michaelskoehler/imgtrafo" />     
-     
-        
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout" />
      	<source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
      
      </platform>
