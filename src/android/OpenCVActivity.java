@@ -1,4 +1,4 @@
-package de.michaelskoehler.opencvandroidplayground;
+package de.michaelskoehler.imgtrafo;
 
 import java.io.File;
 import java.io.FileInputStream;
