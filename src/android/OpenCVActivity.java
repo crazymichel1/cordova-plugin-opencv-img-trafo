@@ -38,8 +38,6 @@ public class OpenCVActivity extends Activity {
 	private int R_drawable_left08;
 	private int R_id_imageView1;
 	
-				
-	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,13 +58,14 @@ public class OpenCVActivity extends Activity {
     	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
         
         // init opencv and start actions (see mLoaderCallback below)
-    	//OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
+    	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
 
+    	/*
     	String msg = getIntent().getStringExtra("de-michaelskoehler-imgtrafo-test");
         
         // my alert hello world
         new AlertDialog.Builder(this).setTitle("Delete entry").setMessage(msg).show();
-        
+        */
     }
         
     // callback function when OpenCVLoader.initAsync is finished
