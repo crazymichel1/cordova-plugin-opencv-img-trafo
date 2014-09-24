@@ -58,7 +58,7 @@ public class ImgTrafo extends CordovaPlugin {
             	// get some application variables
             	final Activity activity = this.cordova.getActivity();
             	final Context context = activity.getApplicationContext();
-            	Resources resources = context.getResources();
+            	final Resources resources = context.getResources();
             	String packageName = context.getPackageName();
             	
             	// dynamical version of setContentView(R.layout.activity_main);
@@ -77,8 +77,8 @@ public class ImgTrafo extends CordovaPlugin {
             	    		{
             	    			// OPENCV ACTIONS here:
             	    			// setting image resource from drawable via bitmap
-            	    	 		Bitmap b_input = BitmapFactory.decodeResource(getResources(), R_drawable_left07);
-            	    	 		Bitmap b_output = BitmapFactory.decodeResource(getResources(), R_drawable_left08);
+            	    	 		Bitmap b_input = BitmapFactory.decodeResource(resources, R_drawable_left07);
+            	    	 		Bitmap b_output = BitmapFactory.decodeResource(resources, R_drawable_left08);
             	    	 		
             	    	 		//b_output = imgtrafo(b_input, b_output, 216, 70, 421, 108, 305, 447, 120, 354);
             	    	 		b_output = canny(b_input);
