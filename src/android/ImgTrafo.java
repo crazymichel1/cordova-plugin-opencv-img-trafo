@@ -41,7 +41,7 @@ public class ImgTrafo extends CordovaPlugin {
             	*/
             	
             	// get some application variables
-            	Activity activity = this.cordova.getActivity();
+            	final Activity activity = this.cordova.getActivity();
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
@@ -59,8 +59,7 @@ public class ImgTrafo extends CordovaPlugin {
             	            	debugVars = debugVars.concat("loading error");
             	                
             	                // my alert hello world
-            	            	act = this.cordova.getActivity();
-            	                new AlertDialog.Builder(act).setTitle("Alert").setMessage("loading successful").show();
+            	                new AlertDialog.Builder(activity).setTitle("Alert").setMessage("loading successful").show();
             	                
             	    		} break;
             	    		default:
