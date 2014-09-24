@@ -16,15 +16,12 @@ import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 
 import android.app.AlertDialog;
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.SurfaceView;
 import android.view.LayoutInflater;
-import android.view.View;
-
-import android.app.Activity;
-//import android.R;
- 
+import android.view.View; 
 
 public class ImgTrafo extends CordovaPlugin {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog"; //plugin
@@ -58,7 +55,11 @@ public class ImgTrafo extends CordovaPlugin {
                 		switch (status) {
             	    		case LoaderCallbackInterface.SUCCESS:
             	    		{
-            	            	debugVars = debugVars.concat("loading successful");
+            	            	debugVars = debugVars.concat("loading error");
+            	                
+            	                // my alert hello world
+            	                new AlertDialog.Builder(activity).setTitle("Alert").setMessage("loading successful").show();
+            	                
             	    		} break;
             	    		default:
             	    		{
@@ -70,11 +71,6 @@ public class ImgTrafo extends CordovaPlugin {
             	
                 // init opencv and start actions (see mLoaderCallback below)
             	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, activity, mLoaderCallback);
-
-                /*
-                // my alert hello world
-                new AlertDialog.Builder(this).setTitle("Delete entry").setMessage("Hallo Welt").show();
-                */
             	
                callbackContext.success();
                return true;
@@ -95,8 +91,6 @@ public class ImgTrafo extends CordovaPlugin {
             // build error msg
             String errorMsg = "Debug-Vars: \n";
             errorMsg = errorMsg.concat(this.debugVars);
-            errorMsg = errorMsg.concat(" \n Message: ");
-            errorMsg = errorMsg.concat(e.getMessage());
             errorMsg = errorMsg.concat(" \n Stack Trace: ");
             errorMsg = errorMsg.concat(sw.toString());
             
