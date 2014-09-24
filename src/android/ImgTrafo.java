@@ -11,11 +11,8 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewFrame;
-import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 import org.opencv.core.Mat;
 
 import android.app.AlertDialog;
@@ -29,31 +26,11 @@ import android.app.Activity;
 //import android.R;
  
 
-public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
-    public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
+public class ImgTrafo extends CordovaPlugin {
+    public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog"; //plugin
+    private static String debugVars = ""; //debugging
     
-    private static String debugVars = "";
-    
-    // opencv
-    private static final String TAG = "OCVSample::Activity";
-	private CameraBridgeViewBase mOpenCvCameraView;    
-    
-    public void onCameraViewStarted(int width, int height) {
-    	
-    }
-    
-    public void onCameraViewStopped() {
-    	
-    }
-    
-    // ?
-    public Mat onCameraFrame(CvCameraViewFrame inputFrame) {
-    	return inputFrame.rgba();
-    }
-    
-    
-    // Cordova Plugin
-	
+    //plugin
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         try {
@@ -61,7 +38,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
         	// Case: showAlertDialog action
             if (ACTION_SHOW_ALERT_DIALOG.equals(action)) { 
             	/*
-            	// Fetch arguments
+            	// Fetch arguments from cordova js plugin
             	JSONObject arg_object = args.getJSONObject(0);
             	String message = arg_object.getString("message");
             	*/
@@ -71,17 +48,9 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
-            	
-            	debugVars = debugVars.concat("Package Name: " + packageName);
-            	
+            	            	
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
-            	            	            	
-            	// opencv
-            	mOpenCvCameraView = (CameraBridgeViewBase)appearance.findViewById(resources.getIdentifier("HelloOpenCvView","id",packageName)); // instead of findViewById(R.id.HelloOpenCvView)
-                mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-                mOpenCvCameraView.setCvCameraViewListener(this);               
-                
             	
                 BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this.cordova.getActivity()) {
                 	@Override
@@ -89,8 +58,7 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
                 		switch (status) {
             	    		case LoaderCallbackInterface.SUCCESS:
             	    		{
-            	    			Log.i(TAG, "OpenCV loading successful :)");
-            	    			mOpenCvCameraView.enableView();
+            	            	debugVars = debugVars.concat("loading successful");
             	    		} break;
             	    		default:
             	    		{
@@ -99,25 +67,14 @@ public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
                 		}
                 	}
                 };
-            	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, activity, mLoaderCallback);
-                
-            	/*
-            	// Get Codova Activity
-            	Activity activity = this.cordova.getActivity();
             	
-            	// Show Alert Dialog
-            	new AlertDialog.Builder(activity)
-	                .setTitle("My Alert")
-	                .setMessage(message)
-	                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-	                    public void onClick(DialogInterface dialog, int which) { 
-	                        // do something after confirmation
-	                    }
-	            
-	                 })
-	                .setIcon(android.R.drawable.ic_dialog_alert)
-	                .show();
-	             */
+                // init opencv and start actions (see mLoaderCallback below)
+            	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, activity, mLoaderCallback);
+
+                /*
+                // my alert hello world
+                new AlertDialog.Builder(this).setTitle("Delete entry").setMessage("Hallo Welt").show();
+                */
             	
                callbackContext.success();
                return true;

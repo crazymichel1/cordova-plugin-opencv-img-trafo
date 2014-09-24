@@ -13,7 +13,6 @@
     <js-module src="www/ImgTrafo.js" name="ImgTrafo">  
         <clobbers target="ImgTrafo" /> <!-- enables access to plugin from your javascript code, e.g. access plugin with SamplePlugin.methodOne();) -->
     </js-module>
-    
         
     <!-- include native code for ANDROID platform  -->
      <platform name="android">
@@ -23,10 +22,6 @@
             <feature name="ImgTrafo"> <!-- name = Java class to call, e.g. "SamplePlugin" (equal to third parameter in javascript cordova.exec function) -->
                 <param name="android-package" value="de.michaelskoehler.imgtrafo.ImgTrafo"/> <!-- value = namespace.featurename, e.g. de.michaelskoehler.sampleplugin.SamplePlugin -->
             </feature>
-            <!-- opencv -->
-            <!--  <feature name="opencvlib249"> 
-                <param name="android-package" value="de.michaelskoehler.opencvlib249" />
-            </feature> -->
         </config-file>
 
         <!-- include/install native java files for the plugin user -->
@@ -34,19 +29,11 @@
         <!-- target-dir = location where the file is copied when the plugin is installed; because of java the last part of the path must correspont to the namespace, e.g. src/de/michaelskoehler/sampleplugin --> 
         <source-file src="src/android/ImgTrafo.java" target-dir="src/de/michaelskoehler/imgtrafo" />     
      	<source-file src="src/android/libs/opencvlib249.jar" target-dir="libs" />
-        <!--  <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" /> -->
+        <resource-file src="src/android/res/layout/activity_main.xml" target="res/layout/activity_main.xml" />
+	    <resource-file src="src/android/res/drawable-hdpi/left07.jpg" target="res/drawable-hdpi/left07.jpg" />
+	    <resource-file src="src/android/res/drawable-hdpi/left08.jpg" target="res/drawable-hdpi/left08.jpg" />
+                
      </platform>
-        
-     <!-- include opencv stuff -->
-     <config-file target="AndroidManifest.xml" parent="/*">     
-	    <uses-permission android:name="android.permission.CAMERA" />
-	   
-	    <uses-feature android:name="android.hardware.camera" android:required="false"/>
-		<uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
-		<uses-feature android:name="android.hardware.camera.front" android:required="false"/>
-		<uses-feature android:name="android.hardware.camera.front.autofocus" android:required="false"/>
-	 </config-file>
-	 
     
 </plugin>
    
