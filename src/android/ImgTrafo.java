@@ -27,8 +27,6 @@ import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.utils.Converters;
 
-import de.michaelskoehler.opencvandroidplayground.R;
-
 import android.app.AlertDialog;
 import android.app.Activity;
 import android.content.DialogInterface;
@@ -59,13 +57,17 @@ public class ImgTrafo extends CordovaPlugin {
             	
             	// get some application variables
             	final Activity activity = this.cordova.getActivity();
-            	Context context = activity.getApplicationContext();
+            	final Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
             	
             	// dynamical version of setContentView(R.layout.activity_main);
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
+            	
+            	// dynamically load R.drawable.left07
+            	final int R_drawable_left07 = resources.getIdentifier("left07", "drawable", packageName);
+            	final int R_drawable_left08 = resources.getIdentifier("left08", "drawable", packageName);
             	
                 BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this.cordova.getActivity()) {
                 	@Override
@@ -75,8 +77,8 @@ public class ImgTrafo extends CordovaPlugin {
             	    		{
             	    			// OPENCV ACTIONS here:
             	    			// setting image resource from drawable via bitmap
-            	    	 		Bitmap b_input = BitmapFactory.decodeResource(getResources(), R.drawable.left07);
-            	    	 		Bitmap b_output = BitmapFactory.decodeResource(getResources(), R.drawable.left08);
+            	    	 		Bitmap b_input = BitmapFactory.decodeResource(getResources(), R_drawable_left07);
+            	    	 		Bitmap b_output = BitmapFactory.decodeResource(getResources(), R_drawable_left08);
             	    	 		
             	    	 		//b_output = imgtrafo(b_input, b_output, 216, 70, 421, 108, 305, 447, 120, 354);
             	    	 		b_output = canny(b_input);
