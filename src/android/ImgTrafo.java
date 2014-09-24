@@ -33,7 +33,7 @@ public class ImgTrafo extends CordovaPlugin {
             	
             	// start another activity
             	Context context = this.cordova.getActivity();
-            	Intent intent = new Intent(context, OpenCVActivity.class);
+            	Intent intent = new Intent(context,OpenCVActivity.class);
             	intent.putExtra("de-michaelskoehler-imgtrafo-test", "blubb");
             	context.startActivity(intent);
             	
