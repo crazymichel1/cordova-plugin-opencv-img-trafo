@@ -35,11 +35,11 @@
                 
 	     <config-file target="AndroidManifest.xml" parent="/manifest/application">     
 			<activity
-		        android:name=".OpenCVActivity"
+		        android:name="de.michaelskoehler.imgtrafo.OpenCVActivity"
 		        android:label="Appname" >
 		        <meta-data
 		            android:name="android.support.PARENT_ACTIVITY"
-		            android:value=".MainActivity" />
+		            android:value="de.michaelskoehler.imgtrafo.ImgTrafo" />
 	    	</activity>
 		 </config-file>
 		 
