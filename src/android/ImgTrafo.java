@@ -30,14 +30,23 @@ public class ImgTrafo extends CordovaPlugin {
             	JSONObject arg_object = args.getJSONObject(0);
             	String message = arg_object.getString("message");
             	*/
-            	
-            	// start another activity
+            	/*
             	Context context = this.cordova.getActivity().getApplicationContext();
             	Intent intent = new Intent(context,OpenCVActivity.class);
-            	intent.putExtra("de-michaelskoehler-imgtrafo-test", "blubb");
-            	context.startActivity(intent);
+            	context.startActivity(intent); */
             	
-               callbackContext.success();
+            	// start another activity
+            	cordova.getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Context context = cordova.getActivity().getApplicationContext();
+                        Intent intent = new Intent(context, OpenCVActivity.class);
+                    	intent.putExtra("de-michaelskoehler-imgtrafo-test", "blubb");
+                        cordova.getActivity().startActivity(intent);
+                    }
+                });
+
+            	//no callbackContext.success();
                return true;
             }
             
