@@ -75,6 +75,7 @@ public class OpenCVActivity extends Activity {
     		switch (status) {
 	    		case LoaderCallbackInterface.SUCCESS:
 	    		{
+	    			/*
 	    			// OPENCV ACTIONS here:
 	    			// setting image resource from drawable via bitmap
 	    			Bitmap b_input = BitmapFactory.decodeResource(resources, R_drawable_left07);
@@ -89,7 +90,7 @@ public class OpenCVActivity extends Activity {
 	    	 		
 	    	        ImageView imageView = (ImageView) findViewById(R_id_imageView1);
 	    	 		imageView.setImageBitmap(b_output);
-	    	 		
+	    	 		*/
 	    		} break;
 	    		default:
 	    		{
