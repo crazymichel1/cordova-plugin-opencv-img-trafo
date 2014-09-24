@@ -57,7 +57,7 @@ public class OpenCVActivity extends Activity {
     	//LayoutInflater inflater = LayoutInflater.from(context);
     	//View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
     	
-    	this.setContentView(resources.getIdentifier("activity_main", "layout", packageName))
+    	this.setContentView(resources.getIdentifier("activity_main", "layout", packageName));
     	
         // init opencv and start actions (see mLoaderCallback below)
     	OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
