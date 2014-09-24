@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 
+import de.michaelskoehler.imgtrafo.R;
 
 public class OpenCVActivity extends Activity {
 	
