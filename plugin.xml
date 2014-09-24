@@ -3,7 +3,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="de.michaelskoehler.imgtrafo"
     version="1.0.0"> <!-- id = a unique namespace (use your website; or anything else) -->
-
+ 
     <name>imgtrafo</name>
     <description>this plugin is still under construction</description>
     <license>MIT</license>
@@ -33,7 +33,18 @@
 	    <resource-file src="src/android/res/drawable-hdpi/left07.jpg" target="res/drawable-hdpi/left07.jpg" />
 	    <resource-file src="src/android/res/drawable-hdpi/left08.jpg" target="res/drawable-hdpi/left08.jpg" />
                 
-     </platform>
+	     <config-file target="AndroidManifest.xml" parent="/manifest/application">     
+			<activity
+		        android:name=".OpenCVActivity"
+		        android:label="Appname" >
+		        <meta-data
+		            android:name="android.support.PARENT_ACTIVITY"
+		            android:value=".MainActivity" />
+	    	</activity>
+		 </config-file>
+		 
+	 </platform>
+     
     
 </plugin>
    
