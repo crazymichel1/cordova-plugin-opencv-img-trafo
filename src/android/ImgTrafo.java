@@ -27,7 +27,7 @@ import android.view.View;
 
 import android.app.Activity;
 //import android.R;
-
+ 
 
 public class ImgTrafo extends CordovaPlugin implements CvCameraViewListener2 {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog";
