@@ -68,7 +68,7 @@ public class ImgTrafo extends CordovaPlugin {
             	// dynamically load R.drawable.left07
             	final int R_drawable_left07 = resources.getIdentifier("left07", "drawable", packageName);
             	final int R_drawable_left08 = resources.getIdentifier("left08", "drawable", packageName);
-            	
+            	 
                 BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this.cordova.getActivity()) {
                 	@Override
                 	public void onManagerConnected(int status) {
@@ -83,17 +83,16 @@ public class ImgTrafo extends CordovaPlugin {
             	    	 		//b_output = imgtrafo(b_input, b_output, 216, 70, 421, 108, 305, 447, 120, 354);
             	    	 		b_output = canny(b_input);
             	    	 		
-            	    	 		/*
-            	    	 		saveImageToInternalStorage(b_output, "bild2.png");
+            	    	        saveImageToInternalStorage(b_output, "bild2.png");
             	    	 		
             	    	 		Bitmap b_read = readImageFromInternalStorage("bild2.png");
             	    	 		
-            	    	        ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-            	    	 		imageView.setImageBitmap(b_read);
+            	    	        //ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+            	    	 		//imageView.setImageBitmap(b_read);
             	    	 		
             	                // my alert hello world
             	                // new AlertDialog.Builder(activity).setTitle("Alert").setMessage("loading successful").show();
-            	                */
+            	                
             	    			
             	    		} break;
             	    		default:
