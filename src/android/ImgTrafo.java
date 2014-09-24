@@ -58,7 +58,7 @@ public class ImgTrafo extends CordovaPlugin {
             	            	debugVars = debugVars.concat("loading error");
             	                
             	                // my alert hello world
-            	                new AlertDialog.Builder(activity).setTitle("Alert").setMessage("loading successful").show();
+            	                new AlertDialog.Builder(this.cordova.getActivity()).setTitle("Alert").setMessage("loading successful").show();
             	                
             	    		} break;
             	    		default:
