@@ -177,7 +177,6 @@ private static Bitmap canny(Bitmap image) {
     
     private void saveImageToInternalStorage(Bitmap image, String filename_inclpng) {
     	try {
-	    	Context context = this.cordova.getActivity().getApplicationContext();
 	    	// Use the compress method on the Bitmap object to write image to
 	    	// the OutputStream
 	    	FileOutputStream fos = context.openFileOutput(filename_inclpng, Context.MODE_PRIVATE);
@@ -192,7 +191,6 @@ private static Bitmap canny(Bitmap image) {
 	
     private Bitmap readImageFromInternalStorage(String filename) {
 		try {
-	    	Context context = this.cordova.getActivity().getApplicationContext();
 			File filePath = context.getFileStreamPath(filename);
 			FileInputStream fi = new FileInputStream(filePath);
 			return BitmapFactory.decodeStream(fi);
