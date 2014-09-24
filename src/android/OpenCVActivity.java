@@ -30,26 +30,34 @@ import org.opencv.utils.Converters;
 
 
 public class OpenCVActivity extends Activity {
+	private Activity activity;
+	private Context context;
+	private Resources resources;
+	private String packageName;
+	private int R_drawable_left07;
+	private int R_drawable_left08;
+	private int R_id_imageView1;
+	
+				
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        // get some application variables
-    	final Activity activity = this;
-    	final Context context = activity.getApplicationContext();
-    	final Resources resources = context.getResources();
-    	final String packageName = context.getPackageName();
+        // define some application variables
+    	activity = this;
+    	context = activity.getApplicationContext();
+    	resources = context.getResources();
+    	packageName = context.getPackageName();
+    	
+    	// dynamically load resources
+    	R_drawable_left07 = resources.getIdentifier("left07", "drawable", packageName);
+    	R_drawable_left08 = resources.getIdentifier("left08", "drawable", packageName);
+    	R_id_imageView1 = resources.getIdentifier("imageView1", "id", packageName);
     	
     	// dynamical version of setContentView(R.layout.activity_main);
     	LayoutInflater inflater = LayoutInflater.from(context);
     	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
-    	
-    	// dynamically load resources
-    	final int R_drawable_left07 = resources.getIdentifier("left07", "drawable", packageName);
-    	final int R_drawable_left08 = resources.getIdentifier("left08", "drawable", packageName);
- 		final int R_id_imageView1 = resources.getIdentifier("imageView1", "id", packageName);
-
         
         // init opencv and start actions (see mLoaderCallback below)
     	//OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
