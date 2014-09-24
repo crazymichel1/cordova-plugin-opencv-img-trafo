@@ -14,8 +14,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import 
-
 public class ImgTrafo extends CordovaPlugin {
     public static final String ACTION_SHOW_ALERT_DIALOG = "showAlertDialog"; //plugin
     private static String debugVars = ""; //debugging
