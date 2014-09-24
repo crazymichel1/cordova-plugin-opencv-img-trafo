@@ -35,7 +35,7 @@ public class ImgTrafo extends CordovaPlugin {
             	Context context = this.cordova.getActivity();
             	Intent intent = new Intent(context, OpenCVActivity.class);
             	intent.putExtra("de-michaelskoehler-imgtrafo-test", "blubb");
-            	cordova.startActivity(intent);
+            	context.startActivity(intent);
             	
                callbackContext.success();
                return true;
