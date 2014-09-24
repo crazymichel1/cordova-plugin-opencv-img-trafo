@@ -45,7 +45,8 @@ public class ImgTrafo extends CordovaPlugin {
             	Context context = activity.getApplicationContext();
             	Resources resources = context.getResources();
             	String packageName = context.getPackageName();
-            	            	
+            	
+            	// dynamical version of setContentView(R.layout.activity_main);
             	LayoutInflater inflater = LayoutInflater.from(context);
             	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
             	
@@ -58,7 +59,8 @@ public class ImgTrafo extends CordovaPlugin {
             	            	debugVars = debugVars.concat("loading error");
             	                
             	                // my alert hello world
-            	                new AlertDialog.Builder(this.cordova.getActivity()).setTitle("Alert").setMessage("loading successful").show();
+            	            	act = this.cordova.getActivity();
+            	                new AlertDialog.Builder(act).setTitle("Alert").setMessage("loading successful").show();
             	                
             	    		} break;
             	    		default:
