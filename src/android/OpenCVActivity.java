@@ -45,9 +45,11 @@ public class OpenCVActivity extends Activity {
     	LayoutInflater inflater = LayoutInflater.from(context);
     	View appearance = inflater.inflate(resources.getIdentifier("activity_main", "layout", packageName),null);
     	
-    	// dynamically load R.drawable.left07
+    	// dynamically load resources
     	final int R_drawable_left07 = resources.getIdentifier("left07", "drawable", packageName);
     	final int R_drawable_left08 = resources.getIdentifier("left08", "drawable", packageName);
+ 		final int R_id_imageView1 = resources.getIdentifier("imageView1", "id", packageName);
+
         
         // init opencv and start actions (see mLoaderCallback below)
     	//OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
@@ -68,8 +70,8 @@ public class OpenCVActivity extends Activity {
 	    		{
 	    			// OPENCV ACTIONS here:
 	    			// setting image resource from drawable via bitmap
-	    	 		Bitmap b_input = BitmapFactory.decodeResource(getResources(), R.drawable.left07);
-	    	 		Bitmap b_output = BitmapFactory.decodeResource(getResources(), R.drawable.left08);
+	    			Bitmap b_input = BitmapFactory.decodeResource(resources, R_drawable_left07);
+	    	 		Bitmap b_output = BitmapFactory.decodeResource(resources, R_drawable_left08);
 	    	 		
 	    	 		//b_output = imgtrafo(b_input, b_output, 216, 70, 421, 108, 305, 447, 120, 354);
 	    	 		b_output = canny(b_input);
@@ -78,7 +80,7 @@ public class OpenCVActivity extends Activity {
 	    	 		
 	    	 		Bitmap b_read = readImageFromInternalStorage("bild2.png");
 	    	 		
-	    	        ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+	    	        ImageView imageView = (ImageView) findViewById(R_id_imageView1);
 	    	 		imageView.setImageBitmap(b_read);
 	    	 		
 	    	 		
@@ -92,7 +94,7 @@ public class OpenCVActivity extends Activity {
 
     };
     
-    private static Bitmap canny(Bitmap image) {
+private static Bitmap canny(Bitmap image) {
     	
     	// convert image to matrix
     	Mat Mat1 = new Mat(image.getWidth(), image.getHeight(), CvType.CV_32FC1);
@@ -167,7 +169,7 @@ public class OpenCVActivity extends Activity {
     
     private void saveImageToInternalStorage(Bitmap image, String filename_inclpng) {
     	try {
-	    	Context context = this.getApplicationContext();
+	    	Context context = this.cordova.getActivity().getApplicationContext();
 	    	// Use the compress method on the Bitmap object to write image to
 	    	// the OutputStream
 	    	FileOutputStream fos = context.openFileOutput(filename_inclpng, Context.MODE_PRIVATE);
@@ -182,7 +184,7 @@ public class OpenCVActivity extends Activity {
 	
     private Bitmap readImageFromInternalStorage(String filename) {
 		try {
-	    	Context context = this.getApplicationContext();
+	    	Context context = this.cordova.getActivity().getApplicationContext();
 			File filePath = context.getFileStreamPath(filename);
 			FileInputStream fi = new FileInputStream(filePath);
 			return BitmapFactory.decodeStream(fi);
