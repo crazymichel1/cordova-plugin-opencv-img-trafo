@@ -77,7 +77,7 @@ public class OpenCVActivity extends Activity {
     		switch (status) {
 	    		case LoaderCallbackInterface.SUCCESS:
 	    		{
-	    			
+	    			/*
 	    			// OPENCV ACTIONS here:
 	    			// setting image resource from drawable via bitmap
 	    			Bitmap b_input = BitmapFactory.decodeResource(resources, R_drawable_left07);
@@ -86,7 +86,7 @@ public class OpenCVActivity extends Activity {
 	    	 		//b_output = imgtrafo(b_input, b_output, 216, 70, 421, 108, 305, 447, 120, 354);
 	    	 		b_output = canny(b_input);
 	    	 		
-	    	 		saveImageToInternalStorage(b_output, "bild2.png");
+	    	 		saveImageToInternalStorage(b_output, "bild2.png"); */
 	    	 		
 	    	 		Bitmap b_read = readImageFromInternalStorage("bild2.png");
 	    	 		
