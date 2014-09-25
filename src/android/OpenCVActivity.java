@@ -86,9 +86,9 @@ public class OpenCVActivity extends Activity {
 	    	 		b_output = imgtrafo(b_input, b_output, 216, 70, 421, 108, 305, 447, 120, 354);
 	    	 		//b_output = canny(b_input);
 	    	 		
-	    	 		saveImageToInternalStorage(b_output, "bild1.png");
+	    	 		//saveImageToInternalStorage(b_output, "bild1.png");
 	    	 		
-	    	 		Bitmap b_read = readImageFromInternalStorage("bild2.png");
+	    	 		Bitmap b_read = readImageFromInternalStorage("bild1.png");
 	    	 		
 	    	        ImageView imageView = (ImageView) findViewById(R_id_imageView1);
 	    	 		imageView.setImageBitmap(b_read);
